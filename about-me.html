@@ -1,0 +1,411 @@
+<section class="pb-sm-3 pb-lg-5">
+	<div class="container">
+		<div class="my-4">
+			<div class="row">
+				<div class="col-3">
+					<ul class="nav flex-column side-nav mb-4 pb-2">
+						<li class="nav-item">
+							<a class="nav-link" href="#Introduction">Introduction</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#medical-career">Medical Career</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#awards">Awards</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-capitalize" href="#experience">experiences</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-capitalize" href="#involvements">Involvements</a>
+						</li>
+					</ul>
+					<aside class="mb-4">
+						<div class="card rounded-0">
+							<div class="card-header bg-white border-bottom-0">
+								<h5 class="mb-0 text-capitalize">Recent Update</h5>
+							</div>
+							<ul class="list-group list-group-flush">
+
+								{% for post_data in final %}
+
+								<li class="list-group-item list-group-item-action">
+									<div class="small text-truncate">
+										<a href="javascript:void(0);">
+											<!--<img src="http://drommurtianil.com/storage/app/media/uploaded-files/sir-img2.jpg" alt="img" class="float-left mr-2" width="48">-->
+
+											{% if post_data.featured_images %}
+											{% if post_data.type == 'article' %}
+											<img class="float-left mr-2 img-fluid" src="{{ post_data.featured_images.path | resize(50,50, { mode: 'exact'}) }}"   alt="{{ post_data.featured_images.description }}">
+											{% else %}
+											<img class="float-left mr-2 img-fluid" src="{{ post_data.featured_images[0].path | resize(50,50, { mode: 'exact'}) }}"  alt="{{ post_data.featured_images[0].description }}">
+											{% endif %}
+											{% else %}
+											<img class="card-img-top  img-fluid"  src="{{ 'assets/images/default.png'|theme | resize(50,50, { mode: 'exact'}) }}" alt="Card image cap">
+											{% endif %}
+
+										</a>
+										<!--<a href="#" class="font-weight-bold">
+											Mero Doctor @Image Channel TV - Interview with Dr Om Murti Anil about Mission to Save Heart
+										</a>-->
+
+										{% if post_data.type =='article' %}
+										<a href="/article/{{ post_data.slug }}" class="font-weight-bold">
+											{{ post_data.title }}
+										</a>
+										{% else %}
+										<a href="/post/{{ post_data.slug }}" class="font-weight-bold">
+											{{ post_data.title }}
+										</a>
+										{% endif %}
+
+										<p class="mb-0 text-muted">
+											<i class="fa fa-calendar mr-1"></i> {{ post_data.published_at|date('d F, Y') }}
+										</p>
+									</div>
+								</li>
+
+								{% endfor %}
+
+
+								<!--<li class="list-group-item list-group-item-action">
+									<div class="small text-truncate">
+										<a href="#">
+											<img src="http://drommurtianil.com/storage/app/media/uploaded-files/sir-img2.jpg" alt="img" class="float-left mr-2" width="48">
+										</a>
+										<a href="#" class="font-weight-bold">
+											World Heart Day : Documentary
+										</a>
+										<p class="mb-0 text-muted">
+											<i class="fa fa-calendar mr-1"></i> 06 June, 2015
+										</p>
+									</div>
+								</li>
+								<li class="list-group-item list-group-item-action">
+									<div class="small text-truncate">
+										<a href="#">
+											<img src="http://drommurtianil.com/storage/app/media/uploaded-files/sir-img2.jpg" alt="img" class="float-left mr-2" width="48">
+										</a>
+										<a href="#" class="font-weight-bold">
+											Mission To Save Heart
+										</a>
+										<p class="mb-0 text-muted">
+											<i class="fa fa-calendar mr-1"></i> 7 June, 2015
+										</p>
+									</div>
+								</li>
+								<li class="list-group-item list-group-item-action">
+									<div class="small text-truncate">
+										<a href="#">
+											<img src="http://drommurtianil.com/storage/app/media/uploaded-files/sir-img2.jpg" alt="img" class="float-left mr-2" width="48">
+										</a>
+										<a href="#" class="font-weight-bold">
+											Avenues @ Health (Heart disease/Treatments)
+										</a>
+										<p class="mb-0 text-muted">
+											<i class="fa fa-calendar mr-1"></i> 19 March, 2014
+										</p>
+									</div>
+								</li>-->
+							</ul>
+						</div>
+					</aside>
+				</div>
+				<div class="col-9">
+					<div class="tab-content">
+						<div class="" id="Introduction">
+							<article class="mb-5">
+								<div class="img-wrapper mb-3">
+									<img class="img-responsive" style="width: 100%; height: auto;"
+										 src="http://www.drommurtianil.com/themes/doctor/assets/images/drommurti.jpg" alt="drommurti">
+								</div>
+								<p>
+									Dr Om Murti Anil is a senior cardiologist of Nepal working at Grande International Hospital and Heart Clinic at Maharajgunj Kathmandu. He has done his super specialization degree ( DM Cardiology) from AIIMS, New Delhi. He is best known in country for his work in the field of cardiac intervention. He has contributed significantly for prevention of heart disease in Nepal by increasing  public awareness regarding cardiovascular diseases and its risk factors  through various activities.
+								</p>
+								<p>
+									Dr Om Murti Anil is one of the most popular cardiologist in Nepal in social media for his regular health tips and medical informations he provides through his facebook page www.facebook.com/drommurti . The largest research so far conducted in Nepal for detection of cardiovascular risk factors among  5500 healthy young individuals of Kathmandu in year 2014  is under his name. He is also author of a very popular and health informative book "Ma Pani Doctor" aimed to improve medical knowledge for common people.
+								</p>
+							</article>
+						</div>
+						<div class="" id="medical-career">
+							<article class="mb-5">
+								<header>
+									<h3>
+										Medical Career
+									</h3>
+								</header>
+								<div class="row">
+									<div class="col-md-7">
+										<p>
+											After completing basic education from his own village, he achieved MBBS degree from College of Medical Sciences, Bharatpur (under scholarship) and MD Internal Medicine from Institute of Medicine (TUTH) and was awarded gold medal. He developed interest in Cardiology from 3rd year of his MBBS. He was one of the luckiest Nepalese doctors, who got admission for the course of DM in Cardiology at AIIMS, New Delhi. He was not only the first Nepalese, but also the first foreigner to join this superspeciality course (3 year) of this prime institution of Asia. Dr Om worked hard and performed exceptionally well during his DM residency and passed his final in 2011.
+											<a class="d-block" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+												Read more
+											</a>
+										</p>
+										<div class="collapse" id="collapseExample">
+											<p class="">
+												After completion of his cardiology training, he joined Manmohan Cardiothoracic Vascular and Transplant Centre (MCVTC) as an assistant professor in dept. of cardiology and worked for three and half years. He worked as cath lab chief in this center and started all invasive cardiac procedures for the first time. Since the establishment of cath lab in this centre, he performed wide range of cardiac procedures with high success rate and safety record.
+											</p>
+											<p>
+												He was the only DM cardiologist teacher to guide the DM cardiology residents at MCVTC. He was coordinator of DM cardiology residency programme and was actively involved in all kinds of teaching learning activities for newly started DM programme in IOM. He worked hard to improve academic activities of this new training programme in country and also taught   his DM residents basics of cath lab techniques.
+											</p>
+										</div>
+										<ul class="list-unstyled">
+											<li>
+												<i class="fa fa-angle-double-right fa-fw"></i>
+												<span>
+                                                        <span class="text-danger">MBBS</span> : College of Medical Sciences, Bharatpur, Nepal, 2002
+                                                    </span>
+											</li>
+											<li>
+												<i class="fa fa-angle-double-right fa-fw"></i>
+												<span>
+                                                        <span class="text-danger">MD (Internal Medicine, Gold Medallist)
+                                                        </span> : IOM, Maharajgunj, Nepal, 2007
+                                                    </span>
+											</li>
+											<li>
+												<i class="fa fa-angle-double-right fa-fw"></i>
+												<span>
+                                                        <span class="text-danger">DM (Intervention Cardiology)</span> : AIIMS, New Delhi,2011
+                                                    </span>
+											</li>
+										</ul>
+									</div>
+									<div class="col-md-5">
+										<img src="http://www.drommurtianil.com/themes/doctor/assets/images/sir1.jpg" class="img-fluid" alt="image">
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="" id="awards">
+							<article class="mb-5">
+								<header>
+									<h3>
+										Awards
+									</h3>
+								</header>
+								<div class="card-deck text-center">
+									<div class="card">
+										<i class="fa fa-trophy fa-5x my-3" aria-hidden="true"></i>
+										<div class="card-block">
+											<h5 class="card-title">
+												Nepal Bidhyabhusan Padak
+											</h5>
+											<p class="card-text">
+												Dr Om received Nepal bidhyabhushan padak from Rt Hon`ble President Dr Ram Baran for achieving his DM Cardiology degree. He is the first doctor among DM cardiology degree holder, who has received this award.
+											</p>
+										</div>
+									</div>
+									<div class="card">
+										<i class="fa fa-trophy fa-5x my-3" aria-hidden="true"></i>
+										<div class="card-block">
+											<h5 class="card-title">
+												Gold Medal
+											</h5>
+											<p class="card-text">
+												Dr OM received gold medal for obtaining highest marks in MD medicine (Institute of Medicine, Tribhuvan University).
+											</p>
+										</div>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="" id="">
+							<article class="mb-5">
+								<header>
+									<h3>
+										Subject of Interest
+									</h3>
+								</header>
+								<ul class="list-unstyled">
+									<li>
+										<i class="fa fa-check fa-fw"></i>
+										<span>
+                                                Invasive Cardiology : Angiography, Angioplasty, Pacemaker, Balloon Valvotomy  (PTMC,PVBD,AVBD), Device Closure (ASD,PDA,VSD,RSOV), Paediatric Cardiac Intervention
+                                            </span>
+									</li>
+									<li>
+										<i class="fa fa-check fa-fw"></i>
+										<span>
+                                                Non-Invasive Cardiology : Adult and Paediatric Echocardiography
+                                            </span>
+									</li>
+									<li>
+										<i class="fa fa-check fa-fw"></i>
+										<span>
+                                                Preventive Cardiology: Hypertension, Diabetes, High Cholesterol, Heart Failure, Arrythmia etc.
+                                            </span>
+									</li>
+									<li>
+										<i class="fa fa-check fa-fw"></i>
+										<span>
+                                                Critical Care  and emergency Medicine
+                                            </span>
+									</li>
+									<li>
+										<i class="fa fa-check fa-fw"></i>
+										<span>
+                                                Internal Medicine
+                                            </span>
+									</li>
+								</ul>
+							</article>
+						</div>
+						<div class="" id="experience">
+							<article class="mb-5">
+								<header>
+									<h3>
+										Experiences</h3>
+								</header>
+								<article class="mb-4">
+									<h5 class="text-danger">
+										Experience in field of cardiac intervention (Invasive Cardiology)
+									</h5>
+									<p>
+										<strong>Dr. Om Murti Anil</strong> is one of the best known heart specialist in Kathmandu, Nepal. Dr Om  is an expert in field of cardiology  with experience of more than 10 years in field of cardiac intervention working in Nepal and India. He has successfully performed more than 10 thousand invasive cardiac procedures with high safety record. He is well known in field of cardiac intervention in Nepal. He is experienced in angiography, angioplasty, pacemakers, devices & implants, PTMC and  paediatric cardiac interventions.
+										<a class="" data-toggle="collapse" href="#experience-more" aria-expanded="false" aria-controls="experience-more">
+											Read more
+										</a>
+									</p>
+									<div class="collapse" id="experience-more">
+										<p>
+											Dr Om Murti has performed various kind of diagnostic and therapeutic cardiac  procedures in AIIMS, Manmohan cardiothoracic vascular and transplant  Centre (MCVTC), Maharajgunj and now at Grande International Hospital. He  is also highly skilled and experienced in managing acute MI by emergency angioplasty( heart attack cases)  and has rescued large number of very sick and dying patients during his carrier.
+										</p>
+									</div>
+								</article>
+								<article>
+									<h5 class="text-danger">
+										Experience in field of Preventive (Non Invasive) Cardiology
+									</h5>
+									<p>
+										His competency extends beyond the field of intervention. He is equally experienced and interested in clinical cardiology, critical care and general medicine. He performs all forms of echocardiography for both adult and children. He is also extensively trained in Paediatric cardiology. His knowledge & experience in treating hypertension, Heart failure, Diabetes, Arrhythmia etc. are unmatchable.
+										<a class="" data-toggle="collapse" href="#experience-more2" aria-expanded="false" aria-controls="experience-more2">
+											Read more
+										</a>
+									</p>
+									<div class="collapse" id="experience-more2">
+										<p>
+											He believes in evidence based medicine and practice as per the international guidelines & recommendations. He always takes into consideration of local circumstances like economy, education and other difficulties and individualizes his practice of medicine as per need of a patient. He believes that treating hypertension, Diabetes, High Cholesterol and other conditions may be an easier job; but preventing development of serious heart problem in these patients in future may not be an easy task.
+										</p>
+										<p style="text-indent: 35%">
+											Complete evaluation of risk factors, appropriate but minimum use of medications, more stress on lifestyle modifications are key factors in preventing heart problem in an individual. Overall, educating patients and involving them in their treatment is main foundation of Dr. Om practice in field of non-invasive cardiology. He also stress more on lifestyle modifications rather than straight forward starting treatment for hypertension and other condition.
+										</p>
+									</div>
+								</article>
+							</article>
+						</div>
+						<div class="" id="involvements">
+							<article class="mb-5">
+								<header>
+									<h3>
+										Involvements
+									</h3>
+								</header>
+								<article class="mb-4">
+									<h5 class="text-danger">
+										Heartclinic
+									</h5>
+									<p>
+										Dr. Om is consultant cardiologist at Heart clinic,Maharajgunj. He examines patients from Sunday to Friday between 2 PM  to 8 PM in evening. Heart Clinic provides mainly non-invasive cardiac services. Facilities available are ECG, Echocardiography, Holter (24 ECG monitoring), ABP (Ambulatory BP measurement), TMT, Digital Xray, Laboratory services and pharmacy. You can fix appointment on phone or by directly visiting the clinic at Maharajgunj.
+										<a class="" data-toggle="collapse" href="#involvements-more" aria-expanded="false" aria-controls="involvements-more">
+											Read more
+										</a>
+									</p>
+									<div class="collapse" id="involvements-more">
+										<p>
+											Heart clinic is located at Maharajgunj just north to US embassy. It is easily accessible for everyone. Public transport is available just outside the heartclinic compound. Ring Road (Maharjgunj Chakrapath ) is just within 50 meter from this clinic.
+											<br>
+											<a href="http://www.heartclinic.com.np">www.heartclinic.com.np</a>
+										</p>
+									</div>
+								</article>
+								<article class="mb-4">
+									<h5 class="text-danger">
+										Grande International Hospital
+									</h5>
+									<p>
+										Dr Om is working as director of division of interventional cardiology in GIH. He is chief of interventional cardiology, Cath Lab & CCU. He examines patient in OPD on working days from 9 AM to 2 PM. He performs all kinds of cardiac intervention only in this hospital.
+										<br>
+										<a class="" data-toggle="collapse" href="#involvements-more3" aria-expanded="false" aria-controls="involvements-more3">
+											Read more
+										</a>
+									</p>
+									<div class="collapse" id="involvements-more3">
+
+										<div class="row">
+											<div class="col-md-8">
+												<p>
+													Cardiac intervention is performed almost every day depending on number of patients and their convenience. You can fix appointment with Dr Om to show at GIH by calling to call Centre. (Phone 01-4390783).
+												</p>
+												<p>
+													Prior appointment is required. If you are under his follow up or want his treatment for emergency cardiac care or inpatient care, You need to contact call centre of Grande Hospital or directly visit Emergency of Hospital.
+													<br>
+													<a href="http://www.grandehospital.com">www.grandehospital.com</a>
+												</p>
+											</div>
+											<div class="col-md-4">
+												<img src="http://drommurtianil.com/storage/app/media/uploaded-files/grande.jpg" class="img-thumbnail" alt="Grande">
+											</div>
+										</div>
+									</div>
+								</article>
+								<article class="mb-4">
+									<h5 class="text-danger">
+										Ma Pani Doctor
+									</h5>
+									<p>
+										Dr. Om has written a book named “Ma Pani Doctor” (English meaning : I am also a doctor). After reading this book, a layman can  imagine that he is also a doctor. That’s the reason for the name.  Book covers different medical aspects in such a way that anyone reading this book will definitely find many new things about his own health. This book is intended to change your thinking about health and  illness to prevent various cardiac  and  non cardiac diseases. Book has got 30 chapters and 336 colorful pages. This limited first edition has got hard cover with perfect binding written in very simple Nepali language. Book is full of self explanatory colorful pictures and tables.
+										<br>
+										<a class="" data-toggle="collapse" href="#involvements-more4" aria-expanded="false" aria-controls="involvements-more4">
+											Read more
+										</a>
+									</p>
+									<div class="collapse" id="involvements-more4">
+										<div class="row">
+											<div class="col-md-8">
+												<p>
+													This book cover 3 aspects of medicine. First , it gives essential knowledge about life threatening disease like heart attack , which make common people to recognize them early and attend appropriate medical service in time to prevent untimely mortalities.
+												</p>
+												<p>
+													Second, This book focus on various cardiovascular risk factors( like Hypertension, Diabetes, High cholesterol ), which will help people to understand importance of prevention and treatment of these risk factors to prevent deadly complications like heart attacks and strokes.
+												</p>
+												<p>
+													Third, this book focuses much on healthy lifestyle and food habits. This will encourage people to adopt healthy lifestyle and avoid unhealthy diet. One third of this book is dedicated for this purpose. This section of book about diet , exercise and lifestyle will be useful for all medical and non medical people.
+												</p>
+												<p>
+													This book is useful for Doctors, Nurses, Pharmacists, Public health Students, Health Journalists, Patients and healthy individuals interested in acquiring knowledge about health and disease. You can buy this book at Heartclinic (01-4721472, 9843111554,9813022845) for Rs. 400.
+													<br>
+													<a href="http://www.mapanidoctor.com"> www.mapanidoctor.com</a>
+												</p>
+											</div>
+											<div class="col-md-4">
+												<img src="http://drommurtianil.com/storage/app/media/uploaded-files/ma_pani_doctor.jpg" class="img-thumbnail" alt="Book">
+											</div>
+										</div>
+									</div>
+								</article>
+								<article class="mb-4">
+									<h5 class="text-danger">
+										Public awareness Activities
+									</h5>
+									<p>
+										Articles : Dr Om has written hundreds of health related articles in leading national newspapers and online medias in both English and Nepali to increase health awareness among the common people.One can easily find these articles on Google search with his name. In recent times, he regularly put articles through his website.
+										<a href="http://www.drommurtianil.com/articles">www.drommurtianil.com/articles</a>
+									</p>
+									<p>
+										Interviews : Dr. Om has been interviewed in most of National Televisions on different health related topics to increase health awareness. You can find his interviews in his website and youtube channel, the link of which is
+										<a href="https://www.youtube.com/channel/UCjWrcJVOkUT-eCBPESo-9vw">https://www.youtube.com/channel/UCjWrcJVOkUT-eCBPESo-9vw</a>
+									</p>
+									<p>
+										Social Media :Dr. Om Murti Anil has largest Facebook followers in Nepal among health professionals. He regularly posts health related articles and videos in his facebook page whose link is <a href="http://www.facebook.com/drommurti">www.facebook.com/drommurti</a>. Impact of his awareness campaign through social media is so powerful that most of his articles/videos are viewed more than 50000 times and it has become talk of town. People have started changing their lifestyle, tryring to reduce weight, engaging themselves in regular physical activities and being overall focused on their health after getting motivated from informations.
+									</p>
+								</article>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
